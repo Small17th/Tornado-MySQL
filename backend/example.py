@@ -10,11 +10,11 @@ class Example(RequestHandler):
         async def example():
             Example.count +=1
             print(Example.count)
-            conn = await aiomysql.connect(host='rm-bp1d1p3ebdnt445mcqo.mysql.rds.aliyuncs.com', port=3306,
-                                          user='tnzx', password='wJXB5O4JWvUP1kJQ',
-                                          db='tiannengdb')
+            conn = await aiomysql.connect(host='127.0.0.1', port=3306,
+                                       user='root', password='',
+                                       db='mysql')
             async with conn.cursor() as cur:
-                count = await cur.execute("SELECT * FROM a_tn_user_merchant limit 1")
+                count = await cur.execute("SELECT 10")
                 r = await cur.fetchall()
                 print(2)
             conn.close()
